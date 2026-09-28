@@ -1,0 +1,2839 @@
+﻿/*
+==============================================================================
+CATEGORIES & TAGS REFERENCE GUIDE
+==============================================================================
+
+CATEGORIES:
+- Auto-Cap (Capitalization & standard abbreviations)
+    * Tags: vei team, vision and seeing, converging and diverging, imaging, lids, ocular findings and conditions, CL, general and medical
+- Refractive (Spectacle & Contact Lens Rx, Fit, Hygiene, and Modalities)
+    * Tags: Spec, PAL, Bifocal, Myopia Management, Presbyopia, Ergonomics, CL Fit, CL Care, CL Names
+- Assessment and Plan (Clinical plans, patient education, counseling, orders, management)
+    * Tags: Plan, Vision, Communication, Medication, Orders, Patient Education, Section Header, Billing
+- Exam Elements (Clinical findings, objective tests, exam notes, imaging)
+    * Tags: CL History, OSD, Posterior Segment, Dilation, Imaging
+
+TRIGGER TYPES:
+- "+ Key" : Requires ending character (Space, Tab, Enter, etc.) -> Hotstring format: ::input
+- "Auto"     : Fires automatically upon completion -> Hotstring format: :*:input
+==============================================================================
+*/
+[
+  {
+    "input": "fin;",
+    "output": "Finalize Spec Rx. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Spec"
+  },
+  {
+    "input": "up;",
+    "output": "Update Spec Rx. Pt preferred changes when demonstrated with phoropter. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Spec"
+  },
+  {
+    "input": "noc;",
+    "output": "Finalize spec Rx, no change compared to current. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Spec"
+  },
+  {
+    "input": "nos;",
+    "output": "No spec required at this time. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Spec"
+  },
+  {
+    "input": "npal;",
+    "output": "Educ on adaptation period for PAL. Recom Varilux XR for ease of adaptation. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "PAL"
+  },
+  {
+    "input": "comp;",
+    "output": "Recom computer glasses as PAL for greater visual ease at intermediate and near distances. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "PAL"
+  },
+  {
+    "input": "rst;",
+    "output": "Recom Stellest lens to prevent myopia progression. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Myopia Management"
+  },
+  {
+    "input": "ar;",
+    "output": "Glasses check available up to 90 days after prescription is written. Anti-Reflective coating and polycarbonate lens material recommended.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Spec"
+  },
+  {
+    "input": "pal;",
+    "output": "Glasses check available up to 90 days after prescription is written. Anti-Reflective coating and polycarbonate lens material recommended. PAL.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "PAL"
+  },
+  {
+    "input": "lb;",
+    "output": "Glasses check available up to 90 days after prescription is written. Anti-Reflective coating and polycarbonate lens material recommended. Lined Bifocal.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Bifocal"
+  },
+  {
+    "input": "cv;",
+    "output": "Good comfort and vision with . Finalize CL Rx, dispense trials, pt may trial ahead of ordering. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Fit"
+  },
+  {
+    "input": "ir;",
+    "output": "Pt successfully completed I&R training. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Fit"
+  },
+  {
+    "input": "fir;",
+    "output": "Pt failed I&R. rtc x na for repeat attempt. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Fit"
+  },
+  {
+    "input": "rda;",
+    "output": "rtc with dr appointment when trials arrive to conclude fit. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Fit"
+  },
+  {
+    "input": "oto;",
+    "output": "Order trials of ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Fit"
+  },
+  {
+    "input": "day;",
+    "output": "Reviewed daily replacement, no sleeping or water activities in CL.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Care"
+  },
+  {
+    "input": "week;",
+    "output": "Reviewed weekly replacement, no sleeping or water activities in CL.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Care"
+  },
+  {
+    "input": "biweek;",
+    "output": "Reviewed bi-weekly replacement, no sleeping or water activities in CL.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Care"
+  },
+  {
+    "input": "month;",
+    "output": "Reviewed monthly replacement, no sleeping or water activities in CL.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Care"
+  },
+  {
+    "input": "weekew;",
+    "output": "Reviewed weekly replacement, CL are approved for 1 week EW, but I recom removing before sleep; no water activities in CL.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Care"
+  },
+  {
+    "input": "monthew;",
+    "output": "Reviewed monthly replacement, CL are approved for 1 mon EW, but I recom removing before sleep; no water activities in CL.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Care"
+  },
+  {
+    "input": "clhd;",
+    "output": "Discussed CL hygeine: wash hands before handling; avoid tap water for CL and case; avoid swimming, hot tubbing, or showing in CL; adhere to daily replacement schedule; if pain, discharge, or redness remove immediately until evaluation in clinic.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Care"
+  },
+  {
+    "input": "clhw;",
+    "output": "Discussed CL hygeine: wash hands before handling; avoid tap water for CL and case; avoid swimming, hot tubbing, or showing in CL; adhere to weekly replacement schedule; if pain, discharge, or redness remove immediately until evaluation in clinic. Reviewed care specific to weekly modalities including digital cleaning, washing CL case with solution only and air dry, replace case every 1-3 months.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Care"
+  },
+  {
+    "input": "clhm;",
+    "output": "Discussed CL hygeine: wash hands before handling; avoid tap water for CL and case; avoid swimming, hot tubbing, or showing in CL; adhere to monthly replacement schedule; if pain, discharge, or redness remove immediately until evaluation in clinic. Reviewed care specific to monthly modalities including digital cleaning, washing CL case with solution only and air dry, replace case every 1-3 months.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Care"
+  },
+  {
+    "input": "p1;",
+    "output": "Precision 1",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "dt1;",
+    "output": "Dailies Total 1",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "dt1mfl;",
+    "output": "Dailies Total 1 MF Low",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "dt1mfm;",
+    "output": "Dailies Total 1 MF Medium",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "d1mfh;",
+    "output": "Dailies Total 1 MF High",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "t30;",
+    "output": "Total30",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "t30t;",
+    "output": "Total30 Toric",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "p7;",
+    "output": "Precision 7",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "t30mfl;",
+    "output": "Total30 MF Low",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "t30mfm;",
+    "output": "Total30 MF Medium",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "t30mfh;",
+    "output": "Total30 MF High",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "bf;",
+    "output": "Biofinity",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Names"
+  },
+  {
+    "input": "os;",
+    "output": "Opposite signs OD, OS.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Spec"
+  },
+  {
+    "input": "opt;",
+    "output": "Optifree or Clear Care are ideal for this CL.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Care"
+  },
+  {
+    "input": "otc;",
+    "output": "Pt opts for otc readers prn.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Presbyopia"
+  },
+  {
+    "input": "st;",
+    "output": "Glasses check available up to 90 days after prescription is written. Stellest lens for myopia management.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Myopia Management"
+  },
+  {
+    "input": "mc;",
+    "output": "Educ on progressive nature of myopia and importance of preventing progression. Wearing FTW of correct spec Rx is protective against progression. Additional therapies can slow progression in the form of Stellest, MiSight, or Atropine gt.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Myopia Management"
+  },
+  {
+    "input": "vizz;",
+    "output": "Pt interested in presb gt. Rx Vizz, educ on SE of mild HA, dimming of VA. Use 2 gt in AM spaced 5 min apart. Keep in fridge until use, then good for 30 days. Sent to Upscript pharm. Sample dispensed.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Presbyopia"
+  },
+  {
+    "input": "od",
+    "output": "OD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "os",
+    "output": "OS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "ou",
+    "output": "OU",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "va",
+    "output": "VA",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "dva",
+    "output": "DVA",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "nva",
+    "output": "NVA",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "dvo",
+    "output": "DVO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "nvo",
+    "output": "NVO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "bcva",
+    "output": "BCVA",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "mrx",
+    "output": "MRx",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "nvs",
+    "output": "NVS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing",
+    "note": "not visually significant"
+  },
+  {
+    "input": "pal",
+    "output": "PAL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "pd",
+    "output": "PD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing",
+    "note": "pupillary distance"
+  },
+  {
+    "input": "lv",
+    "output": "LV",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing",
+    "note": "Low vision"
+  },
+  {
+    "input": "ftw",
+    "output": "FTW",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "lal",
+    "output": "LAL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "d",
+    "output": "D",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing",
+    "note": "diopter"
+  },
+  {
+    "input": "dc",
+    "output": "DC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing",
+    "note": "diopter cylinder"
+  },
+  {
+    "input": "phoro",
+    "output": "phoropter",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "vision and seeing"
+  },
+  {
+    "input": "ci",
+    "output": "CI",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "converging and diverging",
+    "note": "convergence insufficiency"
+  },
+  {
+    "input": "xp",
+    "output": "XP",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "converging and diverging",
+    "note": "exophoria"
+  },
+  {
+    "input": "ep",
+    "output": "EP",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "converging and diverging",
+    "note": "esophoria"
+  },
+  {
+    "input": "npc",
+    "output": "NPC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "converging and diverging",
+    "note": "near point convergence"
+  },
+  {
+    "input": "et",
+    "output": "ET",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "converging and diverging",
+    "note": "esotropia"
+  },
+  {
+    "input": "xt",
+    "output": "XT",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "converging and diverging",
+    "note": "exotropia"
+  },
+  {
+    "input": "bi",
+    "output": "BI",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "converging and diverging",
+    "note": "base in"
+  },
+  {
+    "input": "bo",
+    "output": "BO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "converging and diverging",
+    "note": "base out"
+  },
+  {
+    "input": "bu",
+    "output": "BU",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "converging and diverging",
+    "note": "base up"
+  },
+  {
+    "input": "bd",
+    "output": "BD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "converging and diverging",
+    "note": "base down"
+  },
+  {
+    "input": "oct",
+    "output": "OCT",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "imaging"
+  },
+  {
+    "input": "goct",
+    "output": "gOCT",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "imaging"
+  },
+  {
+    "input": "roct",
+    "output": "rOCT",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "imaging"
+  },
+  {
+    "input": "vf",
+    "output": "VF",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "imaging"
+  },
+  {
+    "input": "vf;",
+    "output": "24-2 VF",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "imaging"
+  },
+  {
+    "input": "faf",
+    "output": "FAF",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "imaging"
+  },
+  {
+    "input": "ct",
+    "output": "CT",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "imaging",
+    "note": "ie CT scan"
+  },
+  {
+    "input": "mri",
+    "output": "MRI",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "imaging"
+  },
+  {
+    "input": "ll",
+    "output": "LL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "lids",
+    "note": "lower lid"
+  },
+  {
+    "input": "ul",
+    "output": "UL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "lids",
+    "note": "upper lid"
+  },
+  {
+    "input": "ull",
+    "output": "ULL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "lids",
+    "note": "upper, lower lid"
+  },
+  {
+    "input": "rul",
+    "output": "RUL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "lids",
+    "note": "right upper lid"
+  },
+  {
+    "input": "rll",
+    "output": "RLL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "lids",
+    "note": "right lower lid"
+  },
+  {
+    "input": "lul",
+    "output": "LUL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "lids",
+    "note": "left upper lid"
+  },
+  {
+    "input": "lll",
+    "output": "LLL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "lids",
+    "note": "left lower lid"
+  },
+  {
+    "input": "qid",
+    "output": "QID",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "bid",
+    "output": "BID",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "tid",
+    "output": "TID",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "qd",
+    "output": "QDAY",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "qday",
+    "output": "QDAY",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "qhs",
+    "output": "QHS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "po",
+    "output": "PO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "wnl",
+    "output": "WNL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "abx",
+    "output": "Abx",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "ecp",
+    "output": "ECP",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "eye care practitioner"
+  },
+  {
+    "input": "tx",
+    "output": "Tx",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "rxed",
+    "output": "Rx'ed",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "hx",
+    "output": "Hx",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "bp",
+    "output": "BP",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "blood pressure"
+  },
+  {
+    "input": "pcp",
+    "output": "PCP",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "gi",
+    "output": "GI",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "gastrointestinal"
+  },
+  {
+    "input": "pan",
+    "output": "PAN",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "pre-auricular nodes"
+  },
+  {
+    "input": "bg",
+    "output": "BG",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "blood glucose"
+  },
+  {
+    "input": "ed",
+    "output": "ED",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "emergency department"
+  },
+  {
+    "input": "se",
+    "output": "SE",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "side effects"
+  },
+  {
+    "input": "ce",
+    "output": "CE",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "lee;",
+    "output": "LEE:",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "hcq",
+    "output": "HCQ",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "(hydroxychloroquine)"
+  },
+  {
+    "input": "ph",
+    "output": "pH",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "fda",
+    "output": "FDA",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "sx",
+    "output": "Sx",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "ni",
+    "output": "NI",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "(No improvement)"
+  },
+  {
+    "input": "pa",
+    "output": "PA",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "(prior auth)"
+  },
+  {
+    "input": "dmv",
+    "output": "DMV",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "ms",
+    "output": "MS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "multiple sclerosis"
+  },
+  {
+    "input": "dm",
+    "output": "DM",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "diabetes"
+  },
+  {
+    "input": "ha",
+    "output": "HA",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "headache"
+  },
+  {
+    "input": "htn",
+    "output": "HTN",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "ho",
+    "output": "h/o",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "history of"
+  },
+  {
+    "input": "rx",
+    "output": "Rx",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "hzk",
+    "output": "HZK",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "herpes zoster keratitis"
+  },
+  {
+    "input": "rce",
+    "output": "RCE",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "recurrent corneal erosion"
+  },
+  {
+    "input": "poag",
+    "output": "POAG",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Primary Open Angle Glaucoma"
+  },
+  {
+    "input": "brvo",
+    "output": "BRVO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "crvo",
+    "output": "CRVO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "crao",
+    "output": "CRAO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "brao",
+    "output": "BRAO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "ohtn",
+    "output": "OHTN",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Ocular Hypertension"
+  },
+  {
+    "input": "nk",
+    "output": "NK",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "neurotrophic keratitis"
+  },
+  {
+    "input": "abmd",
+    "output": "ABMD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "ns",
+    "output": "NS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "nuclear cataracts"
+  },
+  {
+    "input": "cs",
+    "output": "CS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "cortical cataracts"
+  },
+  {
+    "input": "cme",
+    "output": "CME",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "cystoid macular edema"
+  },
+  {
+    "input": "ped",
+    "output": "PED",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Pigmented Epithelial Detachment"
+  },
+  {
+    "input": "pco",
+    "output": "PCO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "cat",
+    "output": "CAT",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "ded",
+    "output": "DED",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "hsk",
+    "output": "HSK",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "erm",
+    "output": "ERM",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "amd",
+    "output": "AMD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "mgd",
+    "output": "MGD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "rd",
+    "output": "RD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "retinal detachment"
+  },
+  {
+    "input": "osd",
+    "output": "OSD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Ocular Surface Disease"
+  },
+  {
+    "input": "vmt",
+    "output": "VMT",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "vitreomacular traction"
+  },
+  {
+    "input": "vma",
+    "output": "VMA",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Vitreomacular adhesion"
+  },
+  {
+    "input": "pvd",
+    "output": "PVD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "psc",
+    "output": "PSC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "dme",
+    "output": "DME",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "ppa",
+    "output": "PPA",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Peripapillary atrophy"
+  },
+  {
+    "input": "nldo",
+    "output": "NLDO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "nasolacrimal duct obstruction"
+  },
+  {
+    "input": "npdr",
+    "output": "NPDR",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "pdr",
+    "output": "PDR",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "cws",
+    "output": "CWS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "cotton wool spot"
+  },
+  {
+    "input": "prp",
+    "output": "PRP",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "pan retinal photocoagulation"
+  },
+  {
+    "input": "chrpe",
+    "output": "CHRPE",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "fsh",
+    "output": "FSH",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "flame shaped heme"
+  },
+  {
+    "input": "fb",
+    "output": "FB",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "eom",
+    "output": "EOM",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "extra ocular movements"
+  },
+  {
+    "input": "tf",
+    "output": "TF",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "fbs",
+    "output": "FBS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "foreign body sensation"
+  },
+  {
+    "input": "pees",
+    "output": "PEEs",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "yag",
+    "output": "YAG",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "ipl",
+    "output": "IPL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Intense Pulsed Light"
+  },
+  {
+    "input": "slt",
+    "output": "SLT",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "lasik",
+    "output": "LASIK",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "prk",
+    "output": "PRK",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "dfe",
+    "output": "DFE",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "rnfl",
+    "output": "RNFL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "fol",
+    "output": "FoL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "tbut",
+    "output": "TBUT",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "onh",
+    "output": "ONH",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "pf",
+    "output": "PF",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Preservative free"
+  },
+  {
+    "input": "fml",
+    "output": "FML",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "fluorometholone"
+  },
+  {
+    "input": "k",
+    "output": "K",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "as in cornea"
+  },
+  {
+    "input": "spk",
+    "output": "SPK",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "superficial punctate keratitis"
+  },
+  {
+    "input": "areds",
+    "output": "AREDS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "uv",
+    "output": "UV",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "UV light"
+  },
+  {
+    "input": "iol",
+    "output": "IOL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "hc",
+    "output": "HC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Hot Compress"
+  },
+  {
+    "input": "hcm",
+    "output": "hot compress mask",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "rpe",
+    "output": "RPE",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Retinal Pigmented Epithelium"
+  },
+  {
+    "input": "aciol",
+    "output": "ACIOL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "omd",
+    "output": "OMD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "(Ophthalmologist)"
+  },
+  {
+    "input": "pciol",
+    "output": "PCIOL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "vt",
+    "output": "VT",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "vision therapy"
+  },
+  {
+    "input": "av",
+    "output": "AV",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "arterio-veniular, as in AV nicking"
+  },
+  {
+    "input": "cl",
+    "output": "CL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "bcl",
+    "output": "BCL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL",
+    "note": "bandage contact lens"
+  },
+  {
+    "input": "bc",
+    "output": "BC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL",
+    "note": "Base Curve"
+  },
+  {
+    "input": "pc",
+    "output": "PC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL",
+    "note": "peripheral curve"
+  },
+  {
+    "input": "ir",
+    "output": "I&R",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "t30",
+    "output": "T30",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "t30t",
+    "output": "T30T",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "t30mf",
+    "output": "T30 MF",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "dt1",
+    "output": "DT1",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "dt1t",
+    "output": "DT1 Toric",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "p1",
+    "output": "P1",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "p1t",
+    "output": "P1 Toric",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "aond",
+    "output": "AO N&D",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL",
+    "note": "Air Optix Night and Day"
+  },
+  {
+    "input": "ao",
+    "output": "AO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL",
+    "note": "Air Optix or Acuvue Oasys"
+  },
+  {
+    "input": "aoc",
+    "output": "AO Colors",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL",
+    "note": "Colors are the worst"
+  },
+  {
+    "input": "mf",
+    "output": "MF",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "xr",
+    "output": "XR",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL",
+    "note": "as in BF toric XR"
+  },
+  {
+    "input": "p7",
+    "output": "P7",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "bf",
+    "output": "BF",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "bft",
+    "output": "BF toric",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "aoh",
+    "output": "AO+H",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "dacp",
+    "output": "DACP",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "myday",
+    "output": "MyDay",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "misight",
+    "output": "MiSight",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "scl",
+    "output": "SCL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "rgp",
+    "output": "RGP",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "rgps",
+    "output": "RGPs",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "ew",
+    "output": "EW",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL",
+    "note": "Extended wear"
+  },
+  {
+    "input": "bl",
+    "output": "B&L",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "CL"
+  },
+  {
+    "input": "ftlee",
+    "output": "Ft Lee",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "ft lee",
+    "output": "Ft Lee",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "--",
+    "output": "(-)",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "==",
+    "output": "(+)",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical"
+  },
+  {
+    "input": "wca;",
+    "output": "when CL trials arrive",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Fit"
+  },
+  {
+    "input": "ncwe;",
+    "output": "(-)CL wear experience",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "CL History"
+  },
+  {
+    "input": "cwe;",
+    "output": "(+) CL wear experience",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "CL History"
+  },
+  {
+    "input": "ni;",
+    "output": "Contact clinic if NI or worsening.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Patient Education"
+  },
+  {
+    "input": "ud;",
+    "output": "undil",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Dilation"
+  },
+  {
+    "input": "dso",
+    "output": "Dispensed sample of ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Medication"
+  },
+  {
+    "input": "dto",
+    "output": "Dispensed trial of ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Fit"
+  },
+  {
+    "input": "oto",
+    "output": "Order trial of ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Fit"
+  },
+  {
+    "input": "sm;",
+    "output": "Stable to previous; monitor.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Plan"
+  },
+  {
+    "input": "sdn;",
+    "output": "May fill spearate distance and near.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Spec"
+  },
+  {
+    "input": "pri;",
+    "output": "*** PRIOR ***",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Section Header"
+  },
+  {
+    "input": "oth;",
+    "output": "*** OTHER ***",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Section Header"
+  },
+  {
+    "input": "presb;",
+    "output": "Discussed presbyopic options with pt including bifocals, OTC readers, MF CL, and presb gt.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Presbyopia"
+  },
+  {
+    "input": "drr;",
+    "output": "Pt preferred changes when demonstrated in phoropter. Submit to optical for remake.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Spec"
+  },
+  {
+    "input": "rr;",
+    "output": "Robust RNFL 360 OU.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Imaging"
+  },
+  {
+    "input": "prism;",
+    "output": "Pt reports clear, single, comfortable vision with prism as demonstrated in trial frame. Finalize spec Rx.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Spec"
+  },
+  {
+    "input": "pni;",
+    "output": "Pt noted improvement to DVA with MRx using phoropter.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Spec"
+  },
+  {
+    "input": "ros;",
+    "output": "Resolution of symptoms",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Plan"
+  },
+  {
+    "input": "vl;",
+    "output": "BCVA limited by ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Vision"
+  },
+  {
+    "input": "fhs;",
+    "output": "Prescribe Foresee Home Screening for daily monitoring to catch progression sooner if occuring and mitigate potential VA loss.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Orders"
+  },
+  {
+    "input": "nb;",
+    "output": "None, baseline",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Imaging"
+  },
+  {
+    "input": "sb;",
+    "output": "Stable to baseline",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Imaging"
+  },
+  {
+    "input": "sp;",
+    "output": "Stable to previous",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Imaging"
+  },
+  {
+    "input": "ma;",
+    "output": "(-) anomalies",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Imaging"
+  },
+  {
+    "input": "na;",
+    "output": "(-) anomalies",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Imaging",
+    "note": "Minus anomalies vs No anomalies"
+  },
+  {
+    "input": "mu;",
+    "output": "Gave guidelines on eye makeup use. Do not apply eye makeup behind the lash line, completely remove makeup each night.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Patient Education"
+  },
+  {
+    "input": "myoc;",
+    "output": "Educated on progressive nature of myopia and importance of preventing progression. Wearing correct spec Rx full time is protective against progression. Additional therapies can also slow progression in form of Stellest spec lens, MiSight CL, or low dose atropine gt.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Myopia Management"
+  },
+  {
+    "input": "2020;",
+    "output": "Educated pt on the 20/20/20 rule. Every 20 minutes of screen time take a 20 second break and look 20 ft in the distance. This can alleviate digital eye strain.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "Ergonomics"
+  },
+  {
+    "input": "retd;",
+    "output": "Educated pt on s/s of RD (floaters, FoL, curtain or veil over peripheral vision); RTC immediately if s/s appear/worsen.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Patient Education"
+  },
+  {
+    "input": "nord;",
+    "output": "(-)RD or tear on thorough retinal exam.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Posterior Segment"
+  },
+  {
+    "input": "nin;",
+    "output": "(-) inflammadry",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "OSD"
+  },
+  {
+    "input": "pin;",
+    "output": "(+) inflammadry",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "OSD"
+  },
+  {
+    "input": "my;",
+    "output": "Monitor yearly.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Plan"
+  },
+  {
+    "input": "ccm",
+    "output": "Continue current management",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Plan"
+  },
+  {
+    "input": "ctm;",
+    "output": "Continue to monitor",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Plan"
+  },
+  {
+    "input": "ctmy;",
+    "output": "Continue to monitor yearly.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Plan"
+  },
+  {
+    "input": "wtp;",
+    "output": "Well tolerated by pt.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Plan"
+  },
+  {
+    "input": "mpn;",
+    "output": "Managing provider name not provided, unable to send communications.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Communication"
+  },
+  {
+    "input": "pot;",
+    "output": "Pt opted to trial upgrade to ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Refractive",
+    "tags": "CL Fit"
+  },
+  {
+    "input": "9;",
+    "output": "90 D views",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Posterior Segment"
+  },
+  {
+    "input": "meibo;",
+    "output": "Rx Meibo 1 gt OU 2-4x/day. Educ on SE of blurry VA upon instillation.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Medication"
+  },
+  {
+    "input": "dys;",
+    "output": "Educ pt on arc shaped FoL and/or shadow being consistent with dysphotopsia; expect gradual neuroadaptation. If new FoL, floaters, or curtain/veil over VA then contact clinic promptly. ",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Patient Education"
+  },
+  {
+    "input": "h;",
+    "output": "Hyperopia",
+    "trigger type": "Dx Header",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Section Header"
+  },
+  {
+    "input": "m;",
+    "output": "Myopia",
+    "trigger type": "Dx Header",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Section Header"
+  },
+  {
+    "input": "a;",
+    "output": "Astigmatism",
+    "trigger type": "Dx Header",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Section Header"
+  },
+  {
+    "input": "p;",
+    "output": "Presbyopia",
+    "trigger type": "Dx Header",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Section Header"
+  },
+  {
+    "input": "ded;",
+    "output": "DED",
+    "trigger type": "Dx Header",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Section Header"
+  },
+  {
+    "input": "plaq;",
+    "output": "Long Term Plaquenil Use",
+    "trigger type": "Dx Header",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Section Header"
+  },
+  {
+    "input": "ck",
+    "output": "Clear / TF adequate",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "OSD"
+  },
+  {
+    "input": "cf",
+    "output": "Clear on NaFl / TF adequate",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "OSD"
+  },
+  {
+    "input": "tp",
+    "output": "tr PEEs / TF adequate",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "OSD"
+  },
+  {
+    "input": "1p",
+    "output": "1+ PEEs / TF inadequate",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "OSD"
+  },
+  {
+    "input": "1pees",
+    "output": "1+ PEEs / TF inadequate",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "OSD"
+  },
+  {
+    "input": "2pe",
+    "output": "2+ PEEs / TF inadequate",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "OSD"
+  },
+  {
+    "input": "3pe",
+    "output": "3+ PEEs / TF inadequate",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "OSD"
+  },
+  {
+    "input": "4pe",
+    "output": "4+ PEEs / TF inadequate",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "OSD"
+  },
+  {
+    "input": "col",
+    "output": "(+) collarettes UL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "tcol",
+    "output": "tr collarettes UL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "1col",
+    "output": "1+ collarettes UL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "2col",
+    "output": "2+ collarettes UL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "3col",
+    "output": "3+ collarettes UL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "4col",
+    "output": "4+ collarettes UL",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "bl",
+    "output": "(+) post bleph",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "tbl",
+    "output": "tr post bleph",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "1bl",
+    "output": "1+ post bleph",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "2bl",
+    "output": "2+ post bleph",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "3bl",
+    "output": "3+ post bleph",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "4bl",
+    "output": "4+ post bleph",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lids"
+  },
+  {
+    "input": "pc;",
+    "output": "PCIOL",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "c;",
+    "output": "Clear",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Anterior Segment"
+  },
+  {
+    "input": "pa;",
+    "output": "(+) papillae LL palp conj",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Conjunctiva"
+  },
+  {
+    "input": "tpa",
+    "output": "tr papillae LL palp conj",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Conjunctiva"
+  },
+  {
+    "input": "1pa",
+    "output": "1+ papillae LL palp conj",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Conjunctiva"
+  },
+  {
+    "input": "2pa",
+    "output": "2+ papillae LL palp conj",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Conjunctiva"
+  },
+  {
+    "input": "3pa",
+    "output": "3+ papillae LL palp conj",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Conjunctiva"
+  },
+  {
+    "input": "4pa",
+    "output": "4+ papillae LL palp conj",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Conjunctiva"
+  },
+  {
+    "input": "tns",
+    "output": "tr NS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "1ns",
+    "output": "1+ NS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "2ns",
+    "output": "2+ NS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "3ns",
+    "output": "3+ NS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "4ns",
+    "output": "4+ NS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "tcs",
+    "output": "tr CS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "1cs",
+    "output": "1+ CS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "2cs",
+    "output": "2+ CS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "3cs",
+    "output": "3+ CS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "4cs",
+    "output": "4+ CS",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "tpsc",
+    "output": "tr PSC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "1psc",
+    "output": "1+ PSC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "2psc",
+    "output": "2+ PSC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "3psc",
+    "output": "3+ PSC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "4psc",
+    "output": "4+ PSC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "tpco",
+    "output": "tr PCO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "tpco;",
+    "output": "tr PCO",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "1pco",
+    "output": "1+ PCO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "2pco",
+    "output": "2+ PCO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "3pco",
+    "output": "3+ PCO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "4pco",
+    "output": "4+ PCO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Lens"
+  },
+  {
+    "input": "pcell",
+    "output": "(+) cell",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Anterior Chamber"
+  },
+  {
+    "input": "tcell",
+    "output": "tr cell",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Anterior Chamber"
+  },
+  {
+    "input": "1cell",
+    "output": "1+ cell",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Anterior Chamber"
+  },
+  {
+    "input": "2cell",
+    "output": "2+ cell",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Anterior Chamber"
+  },
+  {
+    "input": "3cell",
+    "output": "3+ cell",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Anterior Chamber"
+  },
+  {
+    "input": "4cell",
+    "output": "4+ cell",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Anterior Chamber"
+  },
+  {
+    "input": "ppvd",
+    "output": "(+) PVD",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Posterior Segment"
+  },
+  {
+    "input": "nrfq;",
+    "output": "no breaks, RD, or pathology 360 on 4 quadrant views.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Posterior Segment"
+  },
+  {
+    "input": "nrfq",
+    "output": "no breaks, RD, or pathology 360 on 4 quadrant views.",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Posterior Segment"
+  },
+  {
+    "input": "fq;",
+    "output": "on 4 quadrant views.",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Posterior Segment"
+  },
+  {
+    "input": "fq",
+    "output": "on 4 quadrant views.",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Posterior Segment"
+  },
+  {
+    "input": "nr;",
+    "output": "no breaks, RD, or pathology 360",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Posterior Segment"
+  },
+  {
+    "input": "nr",
+    "output": "no breaks, RD, or pathology 360",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Exam Elements",
+    "tags": "Posterior Segment"
+  },
+  {
+    "input": "eoms",
+    "output": "EOMs",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "extra ocular movements"
+  },
+  {
+    "input": "tto",
+    "output": "TTO",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Tea Tree Oil"
+  },
+  {
+    "input": "ekc",
+    "output": "EKC",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "ocular findings and conditions",
+    "note": "Epidemic Keratoconjunctivitis"
+  },
+  {
+    "input": "npt;",
+    "output": "No plaquenil toxicity noted on testing.",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "mfc;",
+    "output": "Monitor for changes.",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "mfcy;",
+    "output": "Monitor for changes yearly.",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "hag;",
+    "output": "h/o recom otc allergy gt.",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "ocular findings and conditions"
+  },
+  {
+    "input": "ar",
+    "output": "AR",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Vision",
+    "note": "Auto Refraction/ Refractor"
+  },
+  {
+    "input": "ted",
+    "output": "TED",
+    "trigger type": "+ Key",
+    "author": "mw",
+    "category": "Auto-Cap",
+    "tags": "general and medical",
+    "note": "Thyroid Eye Disease"
+  },
+  {
+    "input": "kabod;",
+    "output": "K Abrasion OD",
+    "trigger type": "Dx Header",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Section Header"
+  },
+  {
+    "input": "kabos;",
+    "output": "K Abrasion OS",
+    "trigger type": "Dx Header",
+    "author": "mw",
+    "category": "Assessment and Plan",
+    "tags": "Section Header"
+  },
+  {
+    "input": "rn;",
+    "output": "Rtc x na",
+    "trigger type": "Auto",
+    "author": "mw",
+    "category": "Assessment and Plan"
+  }
+]
