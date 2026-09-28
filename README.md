@@ -1,9 +1,14 @@
 # Mr. Macrows: Clinical Charting Assistant
 
-A powerful, custom **AutoHotkey v2.0** suite designed to automate and streamline clinical charting workflows for eye care practitioners (tailored for the specifications of Dr. Matlock Wyman). It integrates seamlessly with electronic health record (EHR) software (such as eClinicalWorks) to minimize repetitive typing, automate checkout sequences, manage contact lens fits, and compile complex diagnostic assessments.
+A powerful, custom **AutoHotkey v2.0** suite designed to automate and streamline clinical charting workflows for eye care practitioners (tailored for the specifications of Dr. Matlock Wyman). It integrates seamlessly with electronic health record (EHR) software to minimize repetitive typing, manage contact lens fits, and compile complex diagnostic assessments.
 
 ---
-
+## Quick Start Instructions
+* Download two files- mr-macrows.exe and starter_macrows.json
+* Double click the .exe to launch, it will prompt you to select a json file. Select the starter_macrows.json file.
+* Then you are good to go. Select ctrl + shift + r for a reference window of some of the functions and you can get rolling.
+* The rest of this readme needs to be polished and I have yet to get to it. Just ignore for now please.
+* Everything is a little messy, it'll get better I promise, just bear with me.
 ## 🚀 Key Features
 
 ### 1. Dynamic JSON Macro Loader & GUI Editor (`Ctrl + Shift + J`)
